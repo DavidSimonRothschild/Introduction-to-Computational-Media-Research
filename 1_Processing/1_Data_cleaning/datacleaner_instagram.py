@@ -2,6 +2,7 @@ import ndjson
 import pandas as pd
 from pandas import json_normalize
 import os
+import re
 
 def prepinstagram_through_user(file_name, date_a, date_b):
     # Load NDJSON file
@@ -61,6 +62,14 @@ for file in os.listdir(raw_dir):
     print(f"Processing {filename}...")
 
     return_df = prepinstagram_through_user(file_path, "2025-03-09", "2025-10-12")
+
+    # 🔹 Clean only the caption text to avoid multi-line CSV rows
+    if "data.caption.text" in return_df.columns:
+        return_df["data.caption.text"] = (
+            return_df["data.caption.text"]
+            .astype(str)
+            .apply(lambda x: re.sub(r'[\r\n]+', ' ', x))
+        )
 
     save_path = os.path.join(clean_dir, filename.split('Instagram')[0] + "_cleaned.csv")
     return_df.to_csv(save_path, index=False)
