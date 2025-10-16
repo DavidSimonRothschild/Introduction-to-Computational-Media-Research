@@ -95,6 +95,12 @@ def create_pdf_table(overall_stats, general_stats, party_stats, output_path):
         fig.suptitle('Table 1: Descriptive Statistics - TikTok Data', 
                      fontsize=16, fontweight='bold', y=0.98)
         
+        # Add prominent AI usage notice
+        fig.text(0.5, 0.94, '⚠ AI GENERATED - Created using Claude Sonnet 4.5 ⚠', 
+                ha='center', fontsize=14, fontweight='bold', 
+                color='red', bbox=dict(boxstyle='round,pad=0.8', 
+                facecolor='yellow', edgecolor='red', linewidth=3))
+        
         # General Statistics
         ax1.axis('tight')
         ax1.axis('off')
@@ -153,6 +159,12 @@ def create_pdf_table(overall_stats, general_stats, party_stats, output_path):
         fig, ax = plt.subplots(figsize=(11, 14))
         fig.suptitle('Table 1 (continued): Statistics by Party', 
                      fontsize=16, fontweight='bold', y=0.98)
+        
+        # Add prominent AI usage notice
+        fig.text(0.5, 0.94, '⚠ AI GENERATED - Created using Claude Sonnet 4.5 ⚠', 
+                ha='center', fontsize=14, fontweight='bold', 
+                color='red', bbox=dict(boxstyle='round,pad=0.8', 
+                facecolor='yellow', edgecolor='red', linewidth=3))
         
         ax.axis('tight')
         ax.axis('off')
