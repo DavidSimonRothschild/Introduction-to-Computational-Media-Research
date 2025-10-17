@@ -1,14 +1,17 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Histogram of TikTok videos per party using plotnine
+Bar chart of TikTok videos per party using matplotlib with ggplot style
 AI GENERATED with claude sonnet 4.5
 """
 
 import pandas as pd
-from plotnine import *
+import matplotlib.pyplot as plt
 import warnings
 warnings.filterwarnings('ignore')
+
+# Use ggplot style
+plt.style.use('ggplot')
 
 # Party data
 party_data = {
@@ -22,37 +25,44 @@ df = pd.DataFrame(party_data)
 # Clean party names for better display
 df['Party_Clean'] = df['Party'].str.replace(r'^\d+_', '', regex=True)
 
-# Create the histogram/bar chart
-plot = (
-    ggplot(df, aes(x='reorder(Party_Clean, -Videos)', y='Videos', fill='Party_Clean')) +
-    geom_col(show_legend=False) +
-    geom_text(aes(label='Videos'), va='bottom', size=10, nudge_y=2) +
-    labs(
-        title='Number of TikTok Videos by Party',
-        x='Party',
-        y='Number of Videos'
-    ) +
-    theme_minimal() +
-    theme(
-        figure_size=(12, 6),
-        plot_title=element_text(size=16, weight='bold', ha='center'),
-        axis_text_x=element_text(rotation=45, ha='right', size=11),
-        axis_text_y=element_text(size=11),
-        axis_title=element_text(size=13, weight='bold'),
-        panel_grid_major_x=element_blank()
-    ) +
-    scale_fill_brewer(type='qual', palette='Set3')
-)
+# Sort by Videos in descending order
+df_sorted = df.sort_values('Videos', ascending=False)
+
+# Create the bar chart
+fig, ax = plt.subplots(figsize=(12, 6))
+
+# Create bars with colors
+bars = ax.bar(df_sorted['Party_Clean'], df_sorted['Videos'], 
+              color=plt.cm.Set3(range(len(df_sorted))))
+
+# Add value labels on top of bars
+for bar in bars:
+    height = bar.get_height()
+    ax.text(bar.get_x() + bar.get_width()/2., height + 1,
+            f'{int(height)}',
+            ha='center', va='bottom', fontsize=10, fontweight='bold')
+
+# Customize the plot
+ax.set_title('Number of TikTok Videos by Party', fontsize=16, fontweight='bold', pad=20)
+ax.set_xlabel('Party', fontsize=13, fontweight='bold')
+ax.set_ylabel('Number of Videos', fontsize=13, fontweight='bold')
+ax.tick_params(axis='x', rotation=45, labelsize=11)
+ax.tick_params(axis='y', labelsize=11)
+
+# Remove top and right spines for cleaner look
+ax.spines['top'].set_visible(False)
+ax.spines['right'].set_visible(False)
+
+plt.tight_layout()
 
 # Save the plot as PDF
 output_path = '/Users/davidrothschild/Downloads/group work/Introduction-to-Computational-Media-Research/A_Data/Table 1/party_histogram.pdf'
-plot.save(output_path, width=12, height=6)
+plt.savefig(output_path, format='pdf', dpi=300, bbox_inches='tight')
 
-print(f"✓ Histogram saved to: {output_path}")
+print(f"✓ Bar chart saved to: {output_path}")
 print("\nParty Video Counts:")
 print(df[['Party', 'Videos']].to_string(index=False))
 print(f"\nTotal Videos: {df['Videos'].sum()}")
 
 # Display the plot
-print("\nDisplaying plot...")
-print(plot)
+plt.show()
