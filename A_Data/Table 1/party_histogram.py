@@ -55,9 +55,9 @@ ax.spines['right'].set_visible(False)
 
 plt.tight_layout()
 
-# Save the plot as PDF
-output_path = '/Users/davidrothschild/Downloads/group work/Introduction-to-Computational-Media-Research/A_Data/Table 1/party_histogram.pdf'
-plt.savefig(output_path, format='pdf', dpi=300, bbox_inches='tight')
+# Save the plot as JPG
+output_path = '/Users/davidrothschild/Downloads/group work/Introduction-to-Computational-Media-Research/A_Data/Table 1/party_histogram.jpg'
+plt.savefig(output_path, format='jpg', dpi=300, bbox_inches='tight')
 
 print(f"✓ Bar chart saved to: {output_path}")
 print("\nParty Video Counts:")
