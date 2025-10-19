@@ -1,0 +1,76 @@
+PROMPT FOR GENERATING SWISS GERMAN SYNTHETIC SOCIAL MEDIA STATEMENTS
+=====================================================================
+
+TASK OVERVIEW:
+Create 100 synthetic social media statements written in authentic Swiss German dialect that represent different generational perspectives on various topics.
+
+DISTRIBUTION REQUIREMENTS:
+--------------------------
+
+Topic Distribution:
+- Politics, elections, and voting: 80% (80 statements)
+- Travel and food: 20% (20 statements)
+
+Generation Distribution:
+- Millennials/Gen Y (1981-1996): 35% (35 statements)
+- Gen Z (1997-2012): 40% (40 statements)
+- Gen Alpha (2013+): 5% (5 statements)
+- Gen X (1965-1980): 10% (10 statements)
+- Baby Boomers (1946-1964): 10% (10 statements)
+
+CONTENT REQUIREMENTS:
+---------------------
+
+Topics:
+- Politics: voting/elections/referendums, party politics, immigration, climate policy, healthcare, taxes, economy, EU relations, neutrality debates, transportation, housing policy, language/cultural issues
+- Travel/Food: Swiss cuisine, restaurants, travel experiences, public transport, weekend trips, food prices, regional specialties, vacation planning
+
+Generational Perspectives:
+- Millennials: Work-life balance, social justice, climate awareness, housing affordability, digital natives
+- Gen Z: Climate crisis urgency, mental health, diversity, direct communication, highly digital
+- Gen Alpha: Fully digital natives, short attention spans, very casual language, gaming/streaming culture
+- Gen X: Pragmatic, independent, skeptical of institutions, direct and cynical
+- Baby Boomers: Traditional values, more formal language, reference past experiences
+
+LANGUAGE AND DIALECT REQUIREMENTS:
+-----------------------------------
+
+Write in authentic Swiss German dialects from German-speaking Switzerland ONLY. Do NOT include:
+- Southern German dialects
+- Alsatian dialects
+- Standard German
+
+Use authentic Swiss German features:
+- "isch" instead of "ist"
+- "chönd/chöi" instead of "können"
+- "gah/gaa/goh" instead of "gehen"
+- "het/hät" instead of "hat"
+- "ned/nid/nöd/nit" instead of "nicht"
+- "chli/bitzeli" instead of "klein/bisschen"
+- Regional vocabulary from Zurich, Bern, Basel, St. Gallen, Central Swiss regions
+- No preterite tense (use perfect tense)
+- Swiss diminutives with "-li"
+
+STYLE GUIDELINES:
+-----------------
+
+- Conversational and authentic to social media
+- Vary sentence length and complexity naturally
+- Include hashtags, emojis, or social media conventions appropriate to each generation
+- Match communication style to generational patterns
+- Gen Z/Alpha: Heavy emoji use, casual language, slang
+- Millennials: Moderate emoji use, mix of formal and casual
+- Gen X: Less emoji use, direct and skeptical
+- Baby Boomers: Minimal/no emojis, more formal, complete sentences
+
+OUTPUT FORMAT:
+--------------
+
+Numbered statements from 1 to 100, each on its own line:
+
+1. [First statement in Swiss German]
+2. [Second statement in Swiss German]
+...
+100. [Hundredth statement in Swiss German]
+
+Generated on: October 20, 2025
