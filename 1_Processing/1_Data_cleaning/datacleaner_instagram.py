@@ -19,7 +19,7 @@ def prepinstagram_through_user(file_name, date_a, date_b):
         'user.username',
         'data.id',
         'data.caption.text',             # text of the post
-        'data.timestamp',           # post creation time
+        'data.caption.created_at',           # post creation time
         'data.media_type',          # image, video, carousel
         'data.permalink',           # full URL to post
         'data.like_count',
@@ -35,15 +35,41 @@ def prepinstagram_through_user(file_name, date_a, date_b):
     df_small = df_flat.loc[:, available_cols]
 
     # Convert timestamp to datetime
-    if 'data.timestamp' in df_small.columns:
-        df_small['data.timestamp'] = pd.to_datetime(df_small['data.timestamp'], errors='coerce')
+    if "data.caption.created_at" in df_small.columns:
+        raw = df_small["data.caption.created_at"].astype("string").str.strip()
+        is_digits = raw.str.fullmatch(r"\d+")
+
+        # Parse non-digits (ISO, RFC, etc.)
+        dt_col = pd.to_datetime(raw.where(~is_digits, None), errors="coerce", utc=True)
+
+        # Parse pure-digit epochs by length
+        nums = pd.to_numeric(raw.where(is_digits, None), errors="coerce")
+        lens = raw.str.len()
+
+        mask_s = is_digits & (lens == 10)  # seconds
+        mask_ms = is_digits & (lens == 13)  # milliseconds
+        mask_us = is_digits & (lens == 16)  # microseconds
+        mask_ns = is_digits & (lens >= 19)  # nanoseconds (very long)
+
+        if mask_s.any():
+            dt_col.loc[mask_s] = pd.to_datetime(nums[mask_s], unit="s", errors="coerce", utc=True)
+        if mask_ms.any():
+            dt_col.loc[mask_ms] = pd.to_datetime(nums[mask_ms], unit="ms", errors="coerce", utc=True)
+        if mask_us.any():
+            dt_col.loc[mask_us] = pd.to_datetime(nums[mask_us], unit="us", errors="coerce", utc=True)
+        if mask_ns.any():
+            dt_col.loc[mask_ns] = pd.to_datetime(nums[mask_ns], unit="ns", errors="coerce", utc=True)
+
+        df_small["data.caption.created_at"] = dt_col
 
         # Date filter
-        date_a = pd.to_datetime(date_a)
-        date_b = pd.to_datetime(date_b)
+        date_a = pd.to_datetime(date_a, utc=True, errors="coerce")
+        date_b = pd.to_datetime(date_b, utc=True, errors="coerce")
+
         df_small = df_small[
-            (df_small['data.timestamp'] >= date_a) & (df_small['data.timestamp'] <= date_b)
-        ]
+            (df_small["data.caption.created_at"] >= date_a) &
+            (df_small["data.caption.created_at"] <= date_b)
+            ]
 
     return df_small
 
