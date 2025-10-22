@@ -15,7 +15,7 @@ def preptiktok_through_user(file_name, date_a, date_b):
         'data.createTime', 'data.stats.collectCount', 'data.stats.commentCount',
         'data.stats.diggCount', 'data.stats.playCount', 'data.stats.shareCount',
         'data.author.nickname', 'data.author.id', 'data.duetDisplay',
-        'data.duetEnabled', 'data.author.signature', 'data.author.uniqueId'
+        'data.duetEnabled', 'data.author.uniqueId'
     ]
 
     df_small = df_flat.loc[:, columns_to_select]
