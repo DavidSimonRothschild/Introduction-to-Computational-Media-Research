@@ -18,16 +18,16 @@ def prepinstagram_through_user(file_name, date_a, date_b):
         'source_platform_url',
         'user.username',
         'data.id',
-        'data.caption.text',             # text of the post
-        'data.caption.created_at',           # post creation time
-        'data.media_type',          # image, video, carousel
-        'data.permalink',           # full URL to post
+        'data.caption.text',          # text of the post
+        'data.caption.created_at',    # post creation time
+        'data.media_type',            # image, video, carousel
+        'data.permalink',             # full URL to post
         'data.like_count',
         'data.comment_count',
         'data.ig_play_count',
         'data.username',
-        'data.media_url',           # direct media link
-        'data.children.data',       # if carousel
+        'data.media_url',             # direct media link
+        'data.children.data',         # if carousel
     ]
 
     # Filter existing columns
@@ -35,36 +35,58 @@ def prepinstagram_through_user(file_name, date_a, date_b):
     df_small = df_flat.loc[:, available_cols]
 
     # Convert timestamp to datetime
-    if "data.caption.created_at" in df_small.columns:
-        raw = df_small["data.caption.created_at"].astype("string").str.strip()
-        is_digits = raw.str.fullmatch(r"\d+")
+    if (
+            "data.caption.created_at" in df_small.columns
+            or "data.taken_at" in df_small.columns
+            or "timestamp_collected" in df_small.columns
+    ):
+        # 0) Coalesce without .fillna(None) — use combine_first or a Series default
+        s_empty = pd.Series(index=df_small.index, dtype="float64")
+        cap = df_small.get("data.caption.created_at", s_empty)
+        taken = df_small.get("data.taken_at", s_empty)
+        coll = df_small.get("timestamp_collected", s_empty)
 
-        # Parse non-digits (ISO, RFC, etc.)
-        dt_col = pd.to_datetime(raw.where(~is_digits, None), errors="coerce", utc=True)
+        merged = cap.combine_first(taken).combine_first(coll)
+        df_small["data.caption.created_at"] = merged
 
-        # Parse pure-digit epochs by length
-        nums = pd.to_numeric(raw.where(is_digits, None), errors="coerce")
-        lens = raw.str.len()
+        raw_series = df_small["data.caption.created_at"]
 
-        mask_s = is_digits & (lens == 10)  # seconds
-        mask_ms = is_digits & (lens == 13)  # milliseconds
-        mask_us = is_digits & (lens == 16)  # microseconds
-        mask_ns = is_digits & (lens >= 19)  # nanoseconds (very long)
+        # 1) Numeric epochs FIRST (handles floats like 1.757675626e9)
+        numeric = pd.to_numeric(raw_series, errors="coerce")
+        dt_col = pd.Series(pd.NaT, index=raw_series.index, dtype="datetime64[ns, UTC]")
 
-        if mask_s.any():
-            dt_col.loc[mask_s] = pd.to_datetime(nums[mask_s], unit="s", errors="coerce", utc=True)
-        if mask_ms.any():
-            dt_col.loc[mask_ms] = pd.to_datetime(nums[mask_ms], unit="ms", errors="coerce", utc=True)
-        if mask_us.any():
-            dt_col.loc[mask_us] = pd.to_datetime(nums[mask_us], unit="us", errors="coerce", utc=True)
-        if mask_ns.any():
-            dt_col.loc[mask_ns] = pd.to_datetime(nums[mask_ns], unit="ns", errors="coerce", utc=True)
+        s_mask = numeric.notna() & (numeric < 1e11)  # seconds
+        ms_mask = numeric.notna() & (numeric >= 1e11) & (numeric < 1e14)  # ms
+        us_mask = numeric.notna() & (numeric >= 1e14) & (numeric < 1e17)  # µs
+        ns_mask = numeric.notna() & (numeric >= 1e17)  # ns
+
+        if s_mask.any():
+            dt_col.loc[s_mask] = pd.to_datetime(numeric[s_mask], unit="s", utc=True, errors="coerce")
+        if ms_mask.any():
+            dt_col.loc[ms_mask] = pd.to_datetime(numeric[ms_mask], unit="ms", utc=True, errors="coerce")
+        if us_mask.any():
+            dt_col.loc[us_mask] = pd.to_datetime(numeric[us_mask], unit="us", utc=True, errors="coerce")
+        if ns_mask.any():
+            dt_col.loc[ns_mask] = pd.to_datetime(numeric[ns_mask], unit="ns", utc=True, errors="coerce")
+
+        # 2) Remaining strings (ISO first, then flexible)
+        still_na = dt_col.isna()
+        if still_na.any():
+            raw_str = raw_series.astype("string").str.strip()
+            is_digits = raw_str.str.fullmatch(r"\d+")
+            iso_try = pd.to_datetime(raw_str.where(~is_digits, None), errors="coerce", utc=True, format="ISO8601")
+            dt_col.loc[still_na & iso_try.notna()] = iso_try[still_na & iso_try.notna()]
+            need_fallback = still_na & ~is_digits & raw_str.notna() & (raw_str != "")
+            if need_fallback.any():
+                dt_col.loc[need_fallback] = pd.to_datetime(raw_str[need_fallback], errors="coerce", utc=True)
 
         df_small["data.caption.created_at"] = dt_col
 
-        # Date filter
+        # Date filter (UTC-aware; include whole end day if no time given)
         date_a = pd.to_datetime(date_a, utc=True, errors="coerce")
         date_b = pd.to_datetime(date_b, utc=True, errors="coerce")
+        if pd.notna(date_b) and date_b.time() == pd.Timestamp(0, tz="UTC").time():
+            date_b = date_b + pd.Timedelta(days=1) - pd.Timedelta(microseconds=1)
 
         df_small = df_small[
             (df_small["data.caption.created_at"] >= date_a) &
@@ -89,7 +111,12 @@ for file in os.listdir(raw_dir):
 
     return_df = prepinstagram_through_user(file_path, "2025-03-09", "2025-10-12")
 
-    # 🔹 Clean only the caption text to avoid multi-line CSV rows
+    # If nothing survived the filter, skip writing an empty CSV
+    if return_df is None or return_df.empty:
+        print(f"[WARN] No rows after filtering for {filename}. Skipping save.")
+        continue
+
+    # Clean only the caption text to avoid multi-line CSV rows
     if "data.caption.text" in return_df.columns:
         return_df["data.caption.text"] = (
             return_df["data.caption.text"]
