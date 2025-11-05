@@ -3,6 +3,8 @@ import pandas as pd
 from pandas import json_normalize
 import os
 import re
+from pathlib import Path
+
 
 def prepinstagram_through_user(file_name, date_a, date_b):
     # Load NDJSON file
@@ -98,8 +100,10 @@ def prepinstagram_through_user(file_name, date_a, date_b):
 
 ### Clean files
 
-raw_dir = "/Users/nickeichmann/PythonProjects/Introduction-to-Computational-Media-Research/A_Data/2_Instagram/1_RAW"
-clean_dir = "/Users/nickeichmann/PythonProjects/Introduction-to-Computational-Media-Research/A_Data/2_Instagram/2_CLEAN"
+PROJECT_ROOT = Path(__file__).resolve().parent.parent  # adjust .parent/.parent as needed
+
+raw_dir = PROJECT_ROOT / "A_Data" / "2_Instagram" / "1_RAW"
+clean_dir = PROJECT_ROOT / "A_Data" / "2_Instagram" / "1_CLEAN"
 
 os.makedirs(clean_dir, exist_ok=True)
 

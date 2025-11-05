@@ -3,6 +3,8 @@ import pandas as pd
 from pandas import json_normalize
 import os
 import re
+from pathlib import Path
+
 
 def preptiktok_through_user(file_name, date_a, date_b):
     with open(file_name, 'r') as f:
@@ -32,9 +34,10 @@ def preptiktok_through_user(file_name, date_a, date_b):
 
 
 ### Clean files
+PROJECT_ROOT = Path(__file__).resolve().parent.parent  # adjust .parent/.parent as needed
 
-raw_dir = "/Users/nickeichmann/PythonProjects/Introduction-to-Computational-Media-Research/A_Data/1_Tiktok/1_RAW"
-clean_dir = "/Users/nickeichmann/PythonProjects/Introduction-to-Computational-Media-Research/A_Data/1_Tiktok/2_CLEAN"
+raw_dir = PROJECT_ROOT / "A_Data" / "1_Tiktok" / "1_RAW"
+clean_dir = PROJECT_ROOT / "A_Data" / "1_Tiktok" / "1_CLEAN"
 
 os.makedirs(clean_dir, exist_ok=True)
 

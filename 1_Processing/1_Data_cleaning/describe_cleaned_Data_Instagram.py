@@ -4,9 +4,15 @@ import matplotlib.pyplot as plt
 from pathlib import Path
 
 # ---- CONFIG ----
-INPUT_DIR = Path("/Users/nickeichmann/PythonProjects/Introduction-to-Computational-Media-Research/A_Data/2_Instagram/2_CLEAN")
-SAVE_PNG   = True  # set to False if you only want to plt.show()
+
+PROJECT_ROOT = Path(__file__).resolve().parent.parent  # adjust .parent/.parent as needed
+
+INPUT_DIR = Path(PROJECT_ROOT / "A_Data" / "2_Instagram" / "2_CLEAN")
+clean_dir = PROJECT_ROOT / "A_Data" / "2_Instagram" / "1_CLEAN"
+SAVE_PNG = True  # set to False if you only want to plt.show()
 OUTPUT_PNG = INPUT_DIR / "Instagram_total_posts_per_party_colored.png"
+
+
 # ----------------
 
 # Swiss party color keywords -> hex (add/adjust as needed)
