@@ -100,10 +100,10 @@ def prepinstagram_through_user(file_name, date_a, date_b):
 
 ### Clean files
 
-PROJECT_ROOT = Path(__file__).resolve().parent.parent  # adjust .parent/.parent as needed
+PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent  # adjusted to reach the root directory
 
 raw_dir = PROJECT_ROOT / "A_Data" / "2_Instagram" / "1_RAW"
-clean_dir = PROJECT_ROOT / "A_Data" / "2_Instagram" / "1_CLEAN"
+clean_dir = PROJECT_ROOT / "A_Data" / "2_Instagram" / "2_CLEAN"
 
 os.makedirs(clean_dir, exist_ok=True)
 
