@@ -1,0 +1,55 @@
+source_party,target_party,weight
+Junge Grüne,Mitte,2
+Junge Grüne,SVP,3
+Junge Grüne,Grüne,7
+Junge Grüne,FDP,1
+Grüne,FDP,2
+Grüne,SVP,2
+JF,FDP,4
+JF,SVP,3
+JF,GLP,1
+JF,SP,2
+JF,Grüne,1
+JF,Mitte,2
+JF,JUSO,4
+Junge GLP,JUSO,2
+Junge GLP,GLP,5
+Junge GLP,SVP,5
+GLP,SVP,3
+GLP,Mitte,4
+GLP,FDP,1
+GLP,Grüne,1
+GLP,JUSO,2
+JSVP,SVP,40
+JSVP,JF,1
+JSVP,Mitte,1
+JSVP,JUSO,3
+Mitte,JUSO,1
+SP,SVP,4
+SP,FDP,1
+SP,Mitte,1
+JUSO,SP,3
+JUSO,SVP,10
+JUSO,Grüne,2
+JUSO,FDP,3
+JUSO,Mitte,3
+JUSO,GLP,2
+Junge EVP,EVP,7
+FDP,JUSO,11
+FDP,SVP,2
+FDP,SP,4
+FDP,Mitte,4
+FDP,Grüne,1
+Junge Mitte,FDP,4
+Junge Mitte,Mitte,27
+Junge Mitte,EVP,2
+Junge Mitte,GLP,1
+SVP,JUSO,5
+SVP,SP,41
+SVP,Mitte,15
+SVP,Grüne,5
+SVP,GLP,3
+SVP,FDP,8
+SVP,EVP,1
+EVP,Mitte,1
+EVP,SVP,1
