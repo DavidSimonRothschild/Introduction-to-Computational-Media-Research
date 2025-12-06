@@ -109,5 +109,9 @@ def main(query: str):
 
 if __name__ == "__main__":
     print("Use test or call main(<query>)")
-    testQuery = "Die E-ID ist der untergang der schweizer selbstbestimmung und schliesst alte menschen aus."
+    testQuery = "Die E-ID ist die beste Idee, die der Schweizer Bundesstaat ja hatte. Wir setzen uns für dieses gute Projekt ein."
+    print(testQuery)
     print(main(testQuery))
+    testQuery2 = "Die E-ID bevormundet die Schweizer Stimmbevölkerung. Die Lösung ist nicht geeignet und gar nicht durchdacht."
+    print(testQuery2)
+    print(main(testQuery2))
