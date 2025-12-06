@@ -1,2 +1,5 @@
 germansentiment
 nltk
+pandas
+ndjson
+matplotlib
