@@ -1,12 +1,21 @@
 import string
 from nltk.tokenize.treebank import TreebankWordTokenizer
 from pathlib import Path
+import os
+import pandas as pd
+import math
+
 
 # Sentiment analysis script for German, rule-based.
 # adapted to run in restricted env (no pickle download)
 
-datafolder = Path("data/")
+PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent.parent
+input_csv = PROJECT_ROOT / "A_Data" / "1_Tiktok" / "2_CLEAN"
+#output_csv = PROJECT_ROOT / "1_Processing" / "2_Analysis" / "1_Caption_Sentiment"
+datafolder = PROJECT_ROOT / "1_Processing" / "2_Analysis" / "1_Caption_Sentiment" / "data"
+#output_csv.mkdir(parents=True, exist_ok=True)
 
+TEXT_COLUMN = "data.desc"
 
 # ------------- helpers ------------- #
 
@@ -26,8 +35,15 @@ def simple_sentence_tokenize(text: str):
 
 word_tokenizer = TreebankWordTokenizer()
 
-
 def treebank_tokenizer(sentence: str):
+    # handle None / NaN / non-string safely
+    if sentence is None:
+        return []
+    if isinstance(sentence, float) and math.isnan(sentence):
+        return []
+    if not isinstance(sentence, str):
+        sentence = str(sentence)
+
     tokens = []
     for s in simple_sentence_tokenize(sentence):
         tokens.extend(word_tokenizer.tokenize(s))
@@ -37,6 +53,7 @@ def treebank_tokenizer(sentence: str):
         for tok in tokens
     ]
     return [t for t in tokens if t]
+
 
 
 def stopword_filter(tokens):
@@ -108,10 +125,45 @@ def main(query: str):
 
 
 if __name__ == "__main__":
-    print("Use test or call main(<query>)")
+
+    if __name__ == "__main__":
+
+        for filename in os.listdir(input_csv):
+            if not filename.endswith(".csv"):
+                continue
+
+            filepath = input_csv / filename
+            print(f"Processing {filepath} ...")
+
+            df = pd.read_csv(filepath)
+
+            if TEXT_COLUMN not in df.columns:
+                print(f"  Column {TEXT_COLUMN} not found in {filename}, skipping.")
+                continue
+
+            # apply sentiment to each caption and store as new column
+            df["sentiment_rulebased"] = df[TEXT_COLUMN].apply(
+                lambda x: main(x)["sentiment"]
+            )
+
+            # overwrite the original file
+            df.to_csv(filepath, index=False)
+            print(f"  Saved with sentiment to {filepath}")
+
+        print("Use test or call main(<query>)")
+
+        testQuery = "Die E-ID ist die beste Idee, die der Schweizer Bundesstaat ja hatte. Wir setzen uns für dieses gute Projekt ein."
+        print(testQuery)
+        print(main(testQuery))
+
+        testQuery2 = "Die E-ID bevormundet die Schweizer Stimmbevölkerung. Die Lösung ist nicht geeignet und gar nicht durchdacht."
+        print(testQuery2)
+        print(main(testQuery2))
+
     testQuery = "Die E-ID ist die beste Idee, die der Schweizer Bundesstaat ja hatte. Wir setzen uns für dieses gute Projekt ein."
     print(testQuery)
     print(main(testQuery))
+
     testQuery2 = "Die E-ID bevormundet die Schweizer Stimmbevölkerung. Die Lösung ist nicht geeignet und gar nicht durchdacht."
     print(testQuery2)
     print(main(testQuery2))
