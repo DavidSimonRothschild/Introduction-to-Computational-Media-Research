@@ -1,0 +1,15 @@
+party_name,0: Not a voting topic,1: E-ID,2: Eigenmietwert,3: Both (E-ID & Eigenmietwert)
+10_JF__cleaned,44,11,9,3
+11_Junge_Mitte__cleaned,44,17,0,0
+12_Junge_Gruene__cleaned,84,15,0,1
+13_Junge_GLP__cleaned,62,9,1,0
+14_Junge_EVP__cleaned,22,5,0,2
+1_SVP__cleaned,228,26,39,4
+2_SP__cleaned,88,7,7,1
+3_FDP__cleaned,77,8,0,0
+4_Die_Mitte__cleaned,20,1,6,1
+5_Gruene__cleaned,106,10,4,0
+6_GLP__cleaned,87,24,0,2
+7_EVP__cleaned,50,9,0,3
+8_JSVP__cleaned,45,36,6,1
+9_JUSO__cleaned,151,24,1,1
