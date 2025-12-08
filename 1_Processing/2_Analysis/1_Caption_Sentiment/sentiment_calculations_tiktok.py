@@ -209,3 +209,33 @@ for ax, (x, y) in zip(axes, pairs):
 
 plt.tight_layout()
 plt.show()
+
+print(party_summary)
+
+# ---- 2b) Diverging bar chart: mean sentiment per party (TikTok) ----
+party_plot = party_summary.sort_values("mean", ascending=True).copy()
+
+# Symmetric x-limits around 0 so the divergence is visually clear
+xmax = party_plot["mean"].abs().max()
+xlim = (-xmax, xmax)
+
+# Color negative vs positive means
+colors = ["tab:red" if m < 0 else "tab:blue" for m in party_plot["mean"]]
+
+plt.figure(figsize=(8, 6))
+plt.barh(
+    y=party_plot.index,
+    width=party_plot["mean"],
+    color=colors,
+    edgecolor="black",
+)
+
+plt.axvline(0, color="black", linewidth=1)  # neutral baseline
+plt.xlim(xlim)
+
+plt.title("Average sentiment by party (TikTok captions)")
+plt.xlabel("Mean rule-based sentiment")
+plt.ylabel("Party")
+
+plt.tight_layout()
+plt.show()
