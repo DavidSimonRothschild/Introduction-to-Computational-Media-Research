@@ -1,28 +1,28 @@
-source_party,target_party,weight
-Junge Grüne,SP,1
-Junge Grüne,JUSO,1
-Junge Grüne,Grüne,1
-Junge Grüne,FDP,1
-Junge Grüne,SVP,1
-Grüne,SVP,3
-Grüne,FDP,2
-JF,SVP,1
-JF,Grüne,1
-JF,JUSO,3
-JF,Mitte,1
-Junge GLP,Grüne,1
-Junge GLP,SVP,1
-JSVP,SVP,13
-SP,SVP,1
-JUSO,SVP,1
-JUSO,Grüne,1
-JUSO,SP,1
-JUSO,FDP,1
-FDP,JUSO,8
-FDP,SP,1
-Junge Mitte,FDP,1
-Junge Mitte,Mitte,5
-SVP,SP,6
-SVP,Mitte,6
-SVP,Grüne,1
-SVP,JUSO,1
+source_party,target_party,weight,mean_sentiment
+Junge Grüne,SP,1,0.19
+Junge Grüne,JUSO,1,0.0
+Junge Grüne,Grüne,1,1.0
+Junge Grüne,SVP,1,-0.76
+Junge Grüne,FDP,1,-0.76
+Grüne,SVP,3,-0.2733333333333334
+Grüne,FDP,2,-0.010000000000000009
+JF,SVP,1,-0.88
+JF,Grüne,1,0.0
+JF,JUSO,3,-0.006666666666666636
+JF,Mitte,1,-0.88
+Junge GLP,Grüne,1,0.0
+Junge GLP,SVP,1,0.25
+JSVP,SVP,13,-0.2915384615384615
+SP,SVP,1,0.26
+JUSO,SVP,1,0.76
+JUSO,Grüne,1,0.01
+JUSO,SP,1,-0.49
+JUSO,FDP,1,-0.53
+FDP,JUSO,8,-0.59875
+FDP,SP,1,0.38
+Junge Mitte,FDP,1,0.0
+Junge Mitte,Mitte,5,0.454
+SVP,SP,6,-0.35833333333333334
+SVP,Mitte,6,-0.14666666666666667
+SVP,Grüne,1,0.06
+SVP,JUSO,1,-1.0

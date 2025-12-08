@@ -2,7 +2,8 @@ from pathlib import Path
 import pandas as pd
 import os
 import re
-from collections import Counter
+from collections import Counter  # still fine to keep, even if unused now
+import numpy as np
 
 # --- paths ---
 PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent.parent
@@ -16,7 +17,6 @@ output_csv.mkdir(parents=True, exist_ok=True)
 parties = ["SP", "Grüne", "Mitte", "EVP", "FDP", "GLP", "JF", "SVP"]
 
 # 1) Map from file *stem* (without .csv) to the source party
-#    ⚠️ ADJUST THIS to your filenames!
 file_to_party = {
     "2_SP__cleaned": "SP",
     "5_Gruene__cleaned": "Grüne",
@@ -36,7 +36,6 @@ file_to_party = {
 }
 
 # 2) Aliases / spellings for each party as they might appear in captions
-#    ⚠️ ADJUST/extend as needed (hashtags, spellings, etc.)
 party_aliases = {
     # Mutterparteien
     "SP": [
@@ -176,7 +175,6 @@ party_aliases = {
     ],
 }
 
-
 # Compile regex patterns for mentions (case-insensitive, try to respect word boundaries)
 party_patterns = {
     party: re.compile(
@@ -187,14 +185,17 @@ party_patterns = {
 }
 
 # --- count edges (source_party, target_party) ---
-edges = Counter()
+
+# Instead of Counter, track weight + sentiment stats per edge
+# key: (source_party, target_party) -> dict(weight, sent_sum, sent_count)
+edges = {}
 
 for filename in os.listdir(input_csv):
     if not filename.endswith(".csv"):
         continue
 
     filepath = input_csv / filename
-    file_stem = Path(filename).stem  # e.g. "spschweiz"
+    file_stem = Path(filename).stem  # e.g. "1_SVP__cleaned"
 
     source_party = file_to_party.get(file_stem)
     if source_party is None:
@@ -207,7 +208,23 @@ for filename in os.listdir(input_csv):
         print(f"⚠️ No 'data.desc' column in {filename}, skipping.")
         continue
 
-    for text in df["data.desc"].dropna().astype(str):
+    if "sentiment_rulebased" not in df.columns:
+        print(f"⚠️ No 'sentiment_rulebased' column in {filename}, filling NaN.")
+        df["sentiment_rulebased"] = np.nan
+
+    # iterate row-wise to get text + sentiment together
+    for _, row in df.iterrows():
+        text = row["data.desc"]
+        if pd.isna(text):
+            continue
+        text = str(text)
+
+        sentiment = row["sentiment_rulebased"]
+        if pd.isna(sentiment):
+            sentiment = None
+        else:
+            sentiment = float(sentiment)
+
         mentioned_targets = set()
 
         for target_party, pattern in party_patterns.items():
@@ -219,15 +236,37 @@ for filename in os.listdir(input_csv):
 
         # Each post counts at most once per (source → target) pair
         for target_party in mentioned_targets:
-            edges[(source_party, target_party)] += 1
+            key = (source_party, target_party)
+            if key not in edges:
+                edges[key] = {
+                    "weight": 0,
+                    "sent_sum": 0.0,
+                    "sent_count": 0,
+                }
+
+            edges[key]["weight"] += 1
+            if sentiment is not None:
+                edges[key]["sent_sum"] += sentiment
+                edges[key]["sent_count"] += 1
 
 # --- build edge table ---
-edges_df = pd.DataFrame(
-    [
-        {"source_party": s, "target_party": t, "weight": w}
-        for (s, t), w in edges.items()
-    ]
-)
+rows = []
+for (s, t), stats in edges.items():
+    if stats["sent_count"] > 0:
+        mean_sent = stats["sent_sum"] / stats["sent_count"]
+    else:
+        mean_sent = np.nan
+
+    rows.append(
+        {
+            "source_party": s,
+            "target_party": t,
+            "weight": int(stats["weight"]),
+            "mean_sentiment": mean_sent,
+        }
+    )
+
+edges_df = pd.DataFrame(rows)
 
 # save for network analysis
 edges_df.to_csv(output_csv / "party_mentions_edges_tiktok.csv", index=False)
