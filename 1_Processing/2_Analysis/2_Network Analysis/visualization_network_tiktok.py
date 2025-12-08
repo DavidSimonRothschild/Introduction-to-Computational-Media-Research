@@ -84,13 +84,36 @@ for k, node in enumerate(ordered_nodes):
     pos[node] = (math.cos(angle), math.sin(angle))
 
 # ------------------------------------------------------
-# 3) JEDER Knoten seine eigene Farbe
+# 3) Eigene Farben pro Partei
 # ------------------------------------------------------
-cmap = get_cmap("tab20", len(ordered_nodes))
-node_color_map = {
-    node: cmap(i) for i, node in enumerate(ordered_nodes)
+party_color_map = {
+    "JUSO": "#f29f9b",
+    "SP": "#F0554D",
+    "Junge Grüne": "#97b870",
+    "Grüne": "#84B547",
+    "Junge GLP": "#baba65",
+    "GLP": "#C4C43D",
+    "Mitte": "#D6862B",
+    "Junge Mitte": "#d6a56d",
+    "EVP": "#DEAA28",
+    "Junge EVP": "#dbbc6e",
+    "FDP": "#3872B5",
+    "JF": "#6e90b8",
+    "SVP": "#4B8A3E",
+    "JSVP": "#658060",
 }
+
+default_color = "#999999"
+
+# Map von Knotenname -> Farbe (in der tatsaechlichen Graph-Node-Liste)
+node_color_map = {
+    node: party_color_map.get(node, default_color)
+    for node in G.nodes()
+}
+
+# Liste in der Reihenfolge von G.nodes() fuer draw_networkx_nodes
 node_colors = [node_color_map[n] for n in G.nodes()]
+
 
 # ------------------------------------------------------
 # 4) Kantenbreiten + Aufsplitten in single / mutual

@@ -68,8 +68,8 @@ political_order = [
     "Junge EVP",
     "FDP",
     "JF",
-    "SVP",
     "JSVP",
+    "SVP",
 ]
 
 ordered_nodes = [n for n in political_order if n in G.nodes()]
@@ -86,12 +86,35 @@ for k, node in enumerate(ordered_nodes):
 # ------------------------------------------------------
 # 3) JEDER Knoten seine eigene Farbe
 # ------------------------------------------------------
-cmap = get_cmap("tab20", len(ordered_nodes))
-node_color_map = {
-    node: cmap(i) for i, node in enumerate(ordered_nodes)
-}
-node_colors = [node_color_map[n] for n in G.nodes()]
 
+party_color_map = {
+    "JUSO": "#f29f9b",          # rot done
+    "SP": "#F0554D",            # SP-rot done
+    "Junge Grüne": "#97b870",   # hellgrün done
+    "Grüne": "#84B547",         # grün done
+    "Junge GLP": "#baba65",     # sehr helles grün done
+    "GLP": "#C4C43D",           # grünliberal done
+    "Mitte": "#D6862B",         # orange done
+    "Junge Mitte": "#d6a56d",   # hellorange done
+    "EVP": "#DEAA28",           # gelb done
+    "Junge EVP": "#dbbc6e",     # hellgelb done
+    "FDP": "#3872B5",           # blau done
+    "JF": "#6e90b8",            # hellblau done
+    "SVP": "#4B8A3E",           # dunkelgrün done
+    "JSVP": "#658060",          # türkisgrün done
+}
+
+# Fallback-Farbe, falls eine Partei im Graph ist, aber nicht oben definiert
+default_color = "#999999"
+
+# Map von Knotenname -> Farbe
+node_color_map = {
+    node: party_color_map.get(node, default_color)
+    for node in G.nodes()
+}
+
+# Liste in der Reihenfolge von G.nodes() für draw_networkx_nodes
+node_colors = [node_color_map[n] for n in G.nodes()]
 # ------------------------------------------------------
 # 4) Kantenbreiten + Aufsplitten in single / mutual
 # ------------------------------------------------------
