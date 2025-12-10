@@ -14,3 +14,50 @@ Instagram and TikTok have become central arenas where Swiss parties attempt to m
 
 Unlike traditional campaign periods, communication around these votes does not follow a neatly defined electoral cycle. Instead, it unfolds as a continuous timeline, shaped by platform dynamics: fluctuating posting frequencies, strategic content closer to voting dates, and the use of emotional messaging to capture attention.
 
+## 2: Method
+
+### 2.1: Engagement-Score
+
+#### 2.1.1: Instagram Engagement Score (mean-centered)
+
+The engagement score measures how strongly an Instagram post performs compared to the *average post of the same party*.
+
+For each post `i`, we first compute a raw engagement score:
+
+`raw_engagement_i = (likes_i / avg_likes)
+                   + (comments_i / avg_comments)`
+
+Both averages (`avg_likes`, `avg_comments`) are calculated **within the same CSV (party)**.
+
+We then mean-center the score within each CSV:
+
+`engagement_score_i = raw_engagement_i - mean(raw_engagement)`
+
+**Interpretation:**
+
+- `0`   → average post  
+- `> 0` → above-average engagement  
+- `< 0` → below-average engagement
+
+#### 2.1.2: TikTok Engagement Score (mean-centered)
+
+The engagement score measures how strongly a TikTok video performs compared to the *average video of the same party*.
+
+For each video `i`, we first compute a raw engagement score:
+
+`raw_engagement_i = (likes_i / avg_likes)
+                   + (comments_i / avg_comments)
+                   + (shares_i / avg_shares)
+                   + (views_i / avg_views)`
+
+All averages (`avg_likes`, `avg_comments`, `avg_shares`, `avg_views`) are calculated **within the same CSV (party)**.
+
+We then mean-center the score within each CSV:
+
+`engagement_score_i = raw_engagement_i - mean(raw_engagement)`
+
+**Interpretation:**
+
+- `0`   → average video  
+- `> 0` → above-average engagement  
+- `< 0` → below-average engagement
