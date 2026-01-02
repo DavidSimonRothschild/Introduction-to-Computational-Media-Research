@@ -62,6 +62,13 @@ We then mean-center the score within each CSV:
 - `> 0` → above-average engagement  
 - `< 0` → below-average engagement
 
+## 2.2: Sentiment Analysis
+To quantify the sentiment of party posts, we applied the rule-based framework Germotion, which is specifically designed for the German language. Germotion tokenizes captions using a pretrained German sentence tokenizer combined with the Treebank word tokenizer, removes punctuation and stopwords, and matches all remaining tokens against two sentiment lexicons derived from the German SentiWS dictionary. These lexicons assign continuous polarity scores in the interval from −1 to +1 to both positive and negative word forms, including their inflected variants.
+
+The algorithm additionally implements a simple negation-handling mechanism: if a sentiment-bearing token is preceded or followed by a negation term such as nicht, nie, or kein, the corresponding sentiment contribution is inverted and downweighted by 50 percent. Sentiment values are aggregated across all detected tokens within a post, and the resulting score is clipped to the interval [−1, 1]. This transparent, dictionary-based procedure ensures that sentiment scores are directly interpretable and well suited for the analysis of German-language political communication.
+
+Github: https://github.com/pascalhuszar/Germotion
+
 # 3 Results
 
 ## 3.1: H1: Posts connecting to the latest voting issues get higher engagement than posts related to non-voting issues
