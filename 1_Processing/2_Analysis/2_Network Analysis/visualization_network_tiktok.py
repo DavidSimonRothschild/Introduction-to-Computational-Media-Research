@@ -263,11 +263,12 @@ nx.draw_networkx_edge_labels(
 
 # Optional: grobe Block-Beschriftung am Kreis behalten
 block_definitions = {
-    "links / linksgruen": {"JUSO", "SP", "Junge Grüne", "Grüne"},
-    "gruenliberal": {"Junge GLP", "GLP"},
-    "Mitte / EVP": {"Mitte", "Junge Mitte", "EVP", "Junge EVP"},
-    "buergerlich / rechts": {"FDP", "JF", "SVP", "JSVP"},
+    "left / green-left": {"JUSO", "SP", "Junge Grüne", "Grüne"},
+    "green-liberal": {"Junge GLP", "GLP"},
+    "centre / EVP": {"Mitte", "Junge Mitte", "EVP", "Junge EVP"},
+    "liberal-conservative / right": {"FDP", "JF", "SVP", "JSVP"},
 }
+
 radius_label = 1.3
 for label, nodes_block in block_definitions.items():
     angles_block = [angles[n] for n in nodes_block if n in angles]
@@ -285,13 +286,23 @@ for label, nodes_block in block_definitions.items():
 # Legende (nur Regel erklären)
 legend_elements = [
     Line2D([0], [0], marker="o", color="w",
-           label="Partei (Farbe)", markerfacecolor="grey", markersize=8),
+           label="Party (color)", markerfacecolor="grey", markersize=8),
     Line2D([0], [0], color="grey", lw=2,
-           label="Pfeilfarbe = Quellpartei"),
+           label="Arrow color = source party"),
 ]
+
 plt.legend(handles=legend_elements, loc="upper left")
 
-plt.title("Netzwerk der Parteierwähnungen\nKreislayout, jede Partei eigene Farbe\nPfeilfarbe = Quelle, Richtung = Quellpartei → Zielpartei")
+plt.title(
+    "TikTok: Network of Party Mentions\n"
+    "Circular layout, each party has its own color\n"
+    "Arrow color = source party, direction = source → target"
+)
 plt.axis("off")
 plt.tight_layout()
+
+output_path = output_csv / "party_mentions_network_tiktok.png"
+plt.savefig(output_path, dpi=300, bbox_inches="tight")
+print(f"Saved network visualisation to: {output_path}")
+
 plt.show()

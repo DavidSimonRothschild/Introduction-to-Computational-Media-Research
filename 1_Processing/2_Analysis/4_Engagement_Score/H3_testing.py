@@ -4,7 +4,7 @@ import statsmodels.api as sm
 
 # -------- CONFIG -------- #
 PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent.parent
-INPUT_FOLDER = PROJECT_ROOT / "A_Data" / "2_Instagram" / "2_CLEAN" #change per platform. For Tiktok: 1_Tiktok
+INPUT_FOLDER = PROJECT_ROOT / "A_Data" / "1_Tiktok" / "2_CLEAN" #change per platform. For Tiktok: 1_Tiktok
 
 SENTIMENT_COL = "sentiment_rulebased"
 Y_COL = "engagement_score"
