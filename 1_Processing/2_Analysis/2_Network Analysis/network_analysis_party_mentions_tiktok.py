@@ -225,6 +225,12 @@ for filename in os.listdir(input_csv):
         else:
             sentiment = float(sentiment)
 
+        engagement = row.get("engagement_score")
+        if pd.isna(engagement):
+            engagement = None
+        else:
+            engagement = float(engagement)
+
         mentioned_targets = set()
 
         for target_party, pattern in party_patterns.items():
@@ -242,20 +248,33 @@ for filename in os.listdir(input_csv):
                     "weight": 0,
                     "sent_sum": 0.0,
                     "sent_count": 0,
+                    "eng_sum": 0.0,
+                    "eng_count": 0,
                 }
 
             edges[key]["weight"] += 1
+
             if sentiment is not None:
                 edges[key]["sent_sum"] += sentiment
                 edges[key]["sent_count"] += 1
 
+            if engagement is not None:
+                edges[key]["eng_sum"] += engagement
+                edges[key]["eng_count"] += 1
+
 # --- build edge table ---
 rows = []
 for (s, t), stats in edges.items():
-    if stats["sent_count"] > 0:
-        mean_sent = stats["sent_sum"] / stats["sent_count"]
-    else:
-        mean_sent = np.nan
+
+    mean_sent = (
+        stats["sent_sum"] / stats["sent_count"]
+        if stats["sent_count"] > 0 else np.nan
+    )
+
+    mean_eng = (
+        stats["eng_sum"] / stats["eng_count"]
+        if stats["eng_count"] > 0 else np.nan
+    )
 
     rows.append(
         {
@@ -263,8 +282,10 @@ for (s, t), stats in edges.items():
             "target_party": t,
             "weight": int(stats["weight"]),
             "mean_sentiment": mean_sent,
+            "mean_engagement": mean_eng,   # <<< NEW
         }
     )
+
 
 edges_df = pd.DataFrame(rows)
 
