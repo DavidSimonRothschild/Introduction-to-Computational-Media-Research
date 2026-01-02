@@ -34,7 +34,7 @@ Social Media Engagement Logic → Engagement leads to resonance
 → Staeder talks about the resonance
 
 
-## 2: Literature Review
+## 1: Literature Review
 
 Shareworthiness - Determinants of User Engagement on Social Media
 
@@ -65,7 +65,7 @@ Within news value theory, conflict refers to the presence of confrontation or co
 **H4: If parties engage with each other, posts have higher engagement, if these parties are ideologically further away from each other.**
 
 
-## 3: Method
+## 2: Method
 
 ### 2.1: Engagement-Score
 
@@ -258,3 +258,30 @@ Descriptive statistics indicate substantial heterogeneity in both ideological di
 A one-sided Spearman rank correlation test reveals no monotonic association between ideological distance and mean engagement (rho = 0.01, p = 0.46). Platform-specific analyses yield similarly null results. On Instagram, the correlation is 0.03 (p = 0.42), while on TikTok it is −0.01 (p = 0.53).
 
 Overall, the TikTok network shows a fragmented and polarised communication structure. Engagement is concentrated on a small number of right-wing actors, and genuine cross-ideological interaction is largely absent. This structural pattern is consistent with the null results of the statistical tests and further supports the rejection of Hypothesis H4.
+
+# 4: Discussion
+# 5: Literature
+
+Bachl, M. (2018). An Evaluation of Retrospective Facebook Content Collection. https://doi.org/10.17605/OSF.IO/6TXGE
+Bene, M. (2017). Sharing Is Caring! Investigating Viral Posts on Politicians’ Facebook Pages During the 2014 General Election Campaign in Hungary. Journal of Information Technology & Politics, 14(4), 387–402. https://doi.org/10.1080/19331681.2017.1367348
+Bene, M. (2021). Topics to talk about. The effects of political topics and issue ownership on user engagement with politicians’ Facebook posts during the 2018 Hungarian general election. Journal of Information Technology & Politics, 18(3), 338–354. https://doi.org/10.1080/19331681.2021.1881015
+Berger, J., & Milkman, K. (2010). Social transmission, emotion, and the virality of online content (No. 106).
+Berger, J., & Milkman, K. L. (2012). What makes online content viral? Journal of Marketing Research, 49(2), 192–205. https://doi.org/10.1509/jmr.10.0353
+Boukes, M., Jones, N. P., & Vliegenthart, R. (2022). Newsworthiness and story prominence: How the presence of news factors relates to upfront position and length of news stories. Journalism, 23(1), 98–116. https://doi.org/10.1177/1464884919899313
+Eilders, C. (2006). News factors and news decisions. Theoretical and methodological advances in Germany. Comm, 31(1), 5–24. https://doi.org/10.1515/COMMUN.2006.002
+Feld, L. P., & Kirchgässner, G. (2000). Direct democracy, political culture, and the outcome of economic policy: A report on the Swiss experience. European Journal of Political Economy, 16(2), 287–306. https://doi.org/10.1016/S0176-2680(00)00003-3
+Galtung, J., & Ruge, M. H. (1965). The Structure of Foreign News: The Presentation of the Congo, Cuba and Cyprus Crises in Four Norwegian Newspapers. Journal of Peace Research, 2(1), 64–90. https://doi.org/10.1177/002234336500200104
+García-Perdomo, V., Salaverría, R., Brown, D. K., & Harlow, S. (2018). To Share or Not to Share: The influence of news values and topics on popular social media content in the United States, Brazil, and Argentina. Journalism Studies, 19(8), 1180–1201. https://doi.org/10.1080/1461670X.2016.1265896
+Gross, M., & Chiru, M. (2022). Time is on my side? The temporal proximity between elections and parties’ salience strategies. European Political Science Review, 14(4), 482–497. https://doi.org/10.1017/S1755773922000376
+Maitra, J., & Hänggli, R. (2023). Who speaks and who is heard on Facebook? Political mobilization and engagement patterns of partisanship and gender in Switzerland’s direct democracy. Journal of Quantitative Description: Digital Media, 3. https://doi.org/10.51685/jqd.2023.008
+McCombs, M. E., & Shaw, D. L. (1972). The Agenda-Setting Function of Mass Media. Public Opinion Quarterly, 36(2), 176. https://doi.org/10.1086/267990
+Robertson, C. E., Pröllochs, N., Schwarzenegger, K., Pärnamets, P., Van Bavel, J. J., & Feuerriegel, S. (2023). Negativity drives online news consumption. Nature Human Behaviour, 7(5), 812–822. https://doi.org/10.1038/s41562-023-01538-4
+Ruhrmann, G. 1955-. (1989). Rezipient und Nachricht: Struktur und Prozeß der Nachrichtenrekonstruktion. Westdt. Verl.
+Schulz, W. (1976). Die Konstruktion von Realität in den Nachrichtenmedien: Analyse der aktuellen Berichterstattung. Alber.
+Staender, A., Ernst, N., & Steppat, D. (2019). Was steigert die Facebook-Resonanz? Eine Analyse der Likes, Shares und Comments im Schweizer Wahlkampf 2015. Studies in Communication and Media, 8(2), 236–271. https://doi.org/10.5771/2192-4007-2019-2-236
+Trilling, D., Tolochko, P., & Burscher, B. (2017). From Newsworthiness to Shareworthiness: How to Predict News Sharing Based on Article Characteristics. Journalism & Mass Communication Quarterly, 94(1), 38–60. https://doi.org/10.1177/1077699016654682
+Tsugawa, S., & Ohsaki, H. (2017). On the relation between message sentiment and its virality on social media. Social Network Analysis and Mining, 7(1), 19. https://doi.org/10.1007/s13278-017-0439-0
+Weber, P. (2014). Discussions in the comments section: Factors influencing participation and interactivity in online newspapers’ reader comments. New Media & Society, 16(6), 941–957. https://doi.org/10.1177/1461444813495165
+Ziegele, M., Breiner, T., & Quiring, O. (2014). What Creates Interactivity in Online News Discussions? An Exploratory Analysis of Discussion Factors in User Comments on News Items. Journal of Communication, 64(6), 1111–1138. https://doi.org/10.1111/jcom.12123
+
+
