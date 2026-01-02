@@ -14,7 +14,58 @@ Instagram and TikTok have become central arenas where Swiss parties attempt to m
 
 Unlike traditional campaign periods, communication around these votes does not follow a neatly defined electoral cycle. Instead, it unfolds as a continuous timeline, shaped by platform dynamics: fluctuating posting frequencies, strategic content closer to voting dates, and the use of emotional messaging to capture attention.
 
-## 2: Method
+**RELEVANCE:**
+use literature: (Bene, 2021; Maitra & Hänggli, 2023; Staender et al., 2019)
+
+Social media as a new political arena
+
+Political Campaigning and Social Media (also in Switzerland → online and on social media)
+
+political communication on social media has increased (however there are some things special to the swiss system that might be different → not personalization bc more an issue centered politics and not a candidate centered politics) Bene
+→
+Social Media Platofms like Instagram and Tiktok use algorithms that act as an “informational bottleneck”,  filtering the vast abundance of content for users (Maitra & Hänggli, 2023). These algorithms prioritize posts that trigger high engagement, making them more likely to appear in the news feeds of followers and their extended networks.
+→ political actors adapt to this platform engagement logic
+
+Social Media Engagement Logic → Engagement leads to resonance
+
+
+→ explain social media engagement logic (engagement leads to resonance)
+
+→ Staeder talks about the resonance
+
+
+## 2: Literature Review
+
+Shareworthiness - Determinants of User Engagement on Social Media
+
+In relation to audience engagement and the dissemination of content on social media, Trilling, Tolochko, and Burscher (2017, pp. 39–41) introduce the concept of shareworthiness, which adapts and replaces the notion of newsworthiness from classical news value theory for the context of social media (Eilders, 2006; Galtung & Ruge, 1965; Schulz, 1976). Research on shareworthiness focuses on identifying which types of social media content are perceived by users as valuable enough to be forwarded to a secondary audience through engagement practices such as viewing, liking, sharing, or commenting. Consequently, social media posts display specific characteristics that may shape their likelihood of being disseminated. Trilling et al. (2017) analyze a range of news factors (e.g., geographical and cultural proximity or negativity) and argue that these factors enhance the “dissemination value” of posts, increasing the probability that recipients will engage with them. Through this process, content is carried from the primary audience to the secondary audience via users’ social networks. According to Trilling et al. (2017), traditional news factors are also responsible for increased sharing behavior on social media. Studies further show that news factors influence commenting behavior and the number of comments on news websites and social media (Weber, 2014; Ziegele et al., 2014) Schulz (1976) defines a list of news factors that can be condensed into the following six dimensions: time, proximity, status, valence, identification, and dynamics. For our analysis of user engagement with Swiss political parties’ Instagram and TikTok posts, the present study focuses on news factors from the dimensions of time, proximity, and valence, as these dimensions capture key mechanisms of attention and engagement. The time dimension refers to the temporal currency of an issue and is operationalized through timeliness, indicating how current or topical a post is. The proximity dimension addresses the perceived closeness of an issue to the audience, whether geographical, political, or cultural, and is reflected in relevance. Finally, the valence dimension captures the evaluative and emotional tone of content and is operationalized through the negative valence news factors negativity and conflict (Schulz, 1976). Those factors have already been shown to be important characteristics for achieving high resonance in the context of social media, mass media and political communication (Boukes et al., 2022; Gross & Chiru, 2022; Maitra & Hänggli, 2023; Robertson et al., 2023; Staender et al., 2019; Trilling et al., 2017)
+
+The first two hypotheses address topical salience, which refers to the extent to which a topic is both current and perceived as important. While timeliness captures the temporal currency of an issue, topical salience also depends on its perceived relevance to users. In news value theory, relevance is closely linked to the dimension of proximity, encompassing not only geographical closeness but also political and cultural proximity (Schulz, 1976).
+
+Relevance
+In news value theory, relevance is closely linked to the dimension of proximity, encompassing not only geographical closeness but also political and cultural proximity (Schulz, 1976). Issues that directly affect citizens’ political decision-making are therefore assumed to be more likely to be perceived as meaningful and worthy of attention. In the Swiss political system, which is characterized by stong participatory direct democracy, voting issues represent a particularly salient form of political relevance. During referendum and election campaigns, citizens are repeatedly called upon to make concrete decisions, which increases their information needs and motivates them to seek out and engage with political content in order to orient themselves and form opinions (Feld & Kirchgässner, 2000). Social media posts by political parties that address current voting issues thus exhibit high topical salience, as they inheret an immediate relevance to users’ civic participation. In line with research on shareworthiness and news values, such content can be expected to generate higher levels of engagement, as users perceive it as more valuable to attend to and potentially to share with others (Trilling et al., 2017). Based on this reasoning, the following hypothesis is proposed:
+
+**H1: Posts connecting to the latest voting issues get higher engagement than posts related to non-voting issues (latest voting issues: E-ID, Cantonal Property Taxes)**
+
+Timeliness
+The second category of post attributes considers the timing of a social media post’s publication. The present study examines the development of resonance over several weeks (one voting cycle) and analyzes differences in resonance with regard to the temporal distance from the voting day. As the voting day approaches during the campaign period, the event becomes increasingly salient. Owing to this growing salience, the topic also receives greater attention in the coverage of journalistic media (Ruhrmann, 1989). Drawing on agenda-setting theory, it is therefore assumed that this heightened media attention increases the public’s perception of the relevance of the issue (McCombs & Shaw, 1972). Consequently, posts of political parties are perceived as increasingly relevant over time, the closer they get to the voting date, which is reflected on social media in overall greater attention to and stronger reactions toward corresponding content published by political parties. Moreover, research shows that political parties strategically adapt their campaign communication in response to increasing temporal salience (Gross & Chiru, 2022). From this, the second hypothesis can be derived:
+
+**H2: Posts that are closer to the voting date generate higher user engagement than posts further from voting date.**
+
+The third and fourth hypothesis relate to the news value dimension of valence, and target specifically the negative valence news factors of negativity and conflict (Schulz, 1976).
+
+Negativity
+Negativity refers to the presence of unfavorable, critical, or problem-oriented aspects within political communication, such as failures, criticism, or adverse consequences(Galtung & Ruge, 1965; Schulz, 1976). Empirical research provides mixed but substantial evidence regarding the effects of negativity on audience engagement. While some studies suggest that positive content may elicit more user reactions ((Berger & Milkman, 2010, 2012; Trilling et al., 2017), a considerable body of literature identifies negativity as a resonance-enhancing factor in political and media communication (Bachl, 2018; Bene, 2017; García-Perdomo et al., 2018; Tsugawa & Ohsaki, 2017). Negative content is assumed to attract increased attention, trigger stronger cognitive and emotional responses, and thus generate higher levels of engagement on social media platforms. From this, we derive the third hypothesis:
+
+**H3: The higher the negativity score, the higher the engagement of a post.**
+
+Conflict
+Within news value theory, conflict refers to the presence of confrontation or controversy in a news story (Boukes et al., 2022). In political communication, conflict typically emerges through explicit disagreement, criticism, or opposition between political actors or ideologies and has repeatedly been identified as a key driver of attention and prominence in both mass media and social media contexts (Bene, 2021; Boukes et al., 2022; Trilling et al., 2017). Conflictual content is perceived as particularly socially relevant because it signals disagreement over issues with potential consequences for society and political decision-making (Eilders, 2006). As such, it can be theorized that conflict attributes attracts heightened attention and are especially effective in stimulating user engagement on social media platforms. Empirical studies further demonstrate that conflict significantly increases story prominence and audience reactions, often to a greater extent than other news factors such as negativity or relevance (Bene, 2021; Boukes et al., 2022; Trilling et al., 2017). In political communication on social media, conflict is frequently manifested through direct interactions between political actors. In the present study, conflict is therefore operationalized as inter-party confrontation, measured through parties explicitly mentioning or engaging with one another. It is important to note that this approach captures only one specific aspect of conflict, namely observable confrontation between parties, rather than the substantive conflict embedded in the content of the posts, which represents a limitation of the analysis. Conflict is also closely tied to ideological distance. Interactions between ideologically distant parties are more likely to be perceived as meaningful and polarizing. Prior research suggests that such interactions can fuel engagement, as users are drawn to oppositional dynamics and clear ideological contrasts (Bene, 2021). Bene (2021), for instance, highlights conflict in the context of the reversed issue ownership effect, showing that users may engage more strongly with content originating from or referencing opposing political camps. Therefore, the following hypothesis is proposed:
+
+**H4: If parties engage with each other, posts have higher engagement, if these parties are ideologically further away from each other.**
+
+
+## 3: Method
 
 ### 2.1: Engagement-Score
 
