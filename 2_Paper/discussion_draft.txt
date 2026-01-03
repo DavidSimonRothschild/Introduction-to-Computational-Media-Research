@@ -1,0 +1,31 @@
+# 5: Discussion
+
+Our paper  examined whether established predictors of social media engagement—topical salience, sentiment, and cross-party interaction—apply to Swiss political communication on Instagram and TikTok. Contrary to expectations derived from news value theory and shareworthiness research, none of the four hypotheses were supported by the data.
+
+## Summary of Findings
+
+Hypothesis H1 predicted that posts addressing current voting issues would generate higher engagement. The results show the opposite: voting-related content systematically underperforms compared to non-voting posts. Hypotheses H2 and H3 tested whether negative sentiment drives engagement, a pattern well-documented in news consumption research. We found no systematic relationship between sentiment and engagement on either platform. Finally, H4 proposed that cross-party interactions between ideologically distant parties would attract more attention. The network analysis revealed no correlation between ideological distance and engagement levels.
+
+## Interpretation
+
+The rejection of H1 suggests that topical salience alone does not guarantee engagement in the Swiss context. One explanation is information saturation: during voting periods, multiple actors simultaneously communicate about the same issues, reducing the distinctiveness of any single post. Additionally, Instagram and TikTok users may primarily seek entertainment rather than political information, making voting-related content less appealing regardless of its civic relevance.
+
+The null findings for sentiment (H2, H3) contradict Robertson et al.'s (2023) observation that negativity drives online news consumption. This discrepancy may reflect Switzerland's consensus-oriented political culture, where overtly negative messaging is less common and potentially less effective. The platform context may also matter: algorithmic curation on Instagram and TikTok could neutralise sentiment effects that operate differently on news websites.
+
+The network analysis for H4 revealed a highly asymmetric interaction structure dominated by right-wing parties, particularly the SVP. Cross-ideological engagement was rare and mostly unidirectional. This pattern suggests that Swiss parties largely communicate within their ideological bubles rather than engaging opponents—a strategy that may reflect risk aversion or audience expectations but limits the potential for conflict-driven engagement.
+
+## Theoretical Implications
+
+These findings challenge the direct transferability of shareworthiness theory (Trilling et al., 2017) to Swiss political social media. News factors that predict engagement in other contexts—timeliness, negativity, conflict—do not operate uniformly across political systems and platforms. The Swiss case, characterised by direct democracy, multiparty coalitions, and a tradition of political compromise, may require context-specific theoretical frameworks.
+
+## Limitations
+
+Several limitations warrant consideration. First, the observation period covered only two national votes, limiting generalisability to other voting contexts such as state wide referenda or elections fort he parliament.
+Second, sentiment was measured using rule-based methods; more sophisticated approaches might capture emotional nuances better. 
+Third, engagement metrics capture visibility but not persuasion or attitude change. Finally, the analysis focused on official party accounts, excluding individual politicians and grassroots actors.
+
+## Future Research
+
+Future studies should extend the temporal scope to include multiple voting cycles and compare Swiss patterns with other direct democracies. An camparison to Germany for example would might be interesting.
+ Qualitative analysis of high-engagement posts could reveal content characteristics not captured by automated methods. 
+It might be interresting to performe an mixed method aproach to analyze the underling knowledge.
