@@ -191,7 +191,32 @@ Hypothesis H3 is not supported by the data. Across platforms, there is no system
 
 For Instagram, the pooled regression yields a negative coefficient for the sentiment variable, indicating that more negative tone is weakly associated with higher engagement. However, this effect is small and statistically insignificant (beta = −0.17, p = 0.21, R² = 0.001). Party-level analyses reveal that almost all parties exhibit coefficients close to zero and large standard errors. The only marginal exception is the FDP, for which the coefficient is negative and borderline significant (beta = −0.65, p = 0.055), suggesting that FDP posts with more negative tone may receive slightly higher engagement. This effect, however, does not generalise to other parties.
 
+|                    | All Parties Pooled | FDP |
+|--------------------|-------------------:|----:|
+| **Sentiment (β)**  | -0.1740            | -0.6493* |
+| **Intercept**      | -0.0237            | -0.0823 |
+| **R²**             | 0.0007             | 0.0405 |
+| **Adj. R²**        | 0.0000             | 0.0289 |
+| **N**              | 1402               | 85 |
+
+*Robust standard errors (HC3) in parentheses.*  
+\* p < .10, ** p < .05, *** p < .01
+
 For TikTok, the pooled regression shows a positive but statistically insignificant association between sentiment and engagement (beta = 0.39, p = 0.55, R² = 0.0004). This indicates that on TikTok, if anything, more positive tone is weakly associated with higher engagement, again contradicting H3. Party-level models on TikTok exhibit large uncertainty and no robust or consistent effects.
+
+
+|                   | All Parties Pooled (Tiktok) |
+|-------------------|----------------------------:|
+| **Sentiment (β)** |                      0.3902 |
+| **Intercept**     |                      0.0524 |
+| **R²**            |                      0.0004 |
+| **Adj. R²**       |                     -0.0022 |
+| **N**             |                         380 |
+| **p-Value**       |                        0.55 |
+
+*Robust standard errors (HC3) in parentheses.*  
+\* p < .10, ** p < .05, *** p < .01
+
 
 Taken together, these findings demonstrate that negativity does not systematically drive engagement in Swiss political social media communication. While there is weak and isolated evidence for a negativity effect among FDP posts on Instagram, this pattern does not extend across parties or platforms. Hypothesis H3 is therefore rejected.
 
