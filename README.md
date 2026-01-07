@@ -2,9 +2,11 @@
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/DavidSimonRothschild/Introduction-to-Computational-Media-Research/blob/main/analysis_notebook.ipynb)
 
-**ICMR Fall Semester 2025**
+**Course**: Introduction to Computational Media Research (ICMR)  
+**Institution**: University of Zurich (UZH), Department of Communication and Media Research  
+**Semester**: Fall 2025
 
-**Group**: Nick Eichmann, Marc Eggenberger, Sarah Häusermann, David Rothschild
+**Contributors**: Nick Eichmann, Marc Eggenberger, Sarah Häusermann, David Rothschild
 
 ## Overview
 
