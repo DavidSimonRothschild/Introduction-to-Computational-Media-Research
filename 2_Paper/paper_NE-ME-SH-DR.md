@@ -53,67 +53,86 @@ Within news value theory, conflict refers to the presence of confrontation or co
 
 The dataset consists of social media posts published by all Swiss political parties represented in the national parliament. Data were collected from the official Instagram and TikTok accounts of these parties, including their youth organizations (where applicable). The observation period covers one month until the recent national vote of September 28, 2025 (e-ID Act, Cantonal Property Taxes). This voting periods has higher activity, while still being two rather low engaging topics according to fög (2025).
 
-![tiktok_total_posts_per_party_colored.png](../A_Data/1_Tiktok/2_CLEAN/tiktok_total_posts_per_party_colored.png)
-*Figure 1: Overview of collected posts on Tiktok*
+![Overview of collected posts on Tiktok](../A_Data/1_Tiktok/2_CLEAN/tiktok_total_posts_per_party_colored.png)
 
 All posts published during this period were included, provided they contained political content. This includes posts related to voting issues, party positions, political actors, or mobilization cues. Non-political or purely administrative content was excluded. The unit of analysis is the individual post (Instagram post or TikTok video).
 
 In total, the sample comprises a substantially larger number of posts on Instagram than on TikTok, reflecting platform-specific communication strategies. On TikTok, posting activity is more unevenly distributed across parties, with a small number of actors accounting for a large share of all posts. In particular, the SVP and its youth wing show comparatively high activity, while several smaller parties and youth organizations post only sporadically. On Instagram, overall posting levels are higher across almost all parties, but similar inequalities in activity levels remain visible.
 
-![v2_Instagram_total_posts_per_party_colored.png](../A_Data/2_Instagram/2_CLEAN/v2_Instagram_total_posts_per_party_colored.png)
-*Figure 2: Overview of collected posts on Instagram*
-
 Figures 1 and 2 illustrate the total number of posts per party on TikTok and Instagram, respectively. The data were collected with Zeeschuimer. More parties were active on Instagram (N=14) than on TikTok (n=10) For each post, platform-specific metadata (date of publication, party account), content-related variables (issue relevance, presence of negativity, cross-party mentions), and engagement metrics (likes, comments, shares, views) are included. 
+
+![Overview of collected posts on Instagram](../A_Data/2_Instagram/2_CLEAN/v2_Instagram_total_posts_per_party_colored.png)
+
 
 ### 3.2: Engagement-Score
 
 Engagement is a key factor for visibility on social media, but engagement metrics differ across platforms. Therefore, platform-specific engagement scores were calculated. On Instagram, the score is based on likes and comments, while on TikTok it additionally includes shares and views.
 
 Since engagement levels are not directly comparable across parties or platforms, engagement is normalized within each party. Each post is compared to the average post of the same party on the same platform. The calculation of the engagement scores is described below.
+## 3.2.1: Instagram Engagement Score (mean-centered)
 
-#### 3.2.1: Instagram Engagement Score (mean-centered)
+The engagement score captures how strongly an Instagram post performs relative to the *average post of the same party*.
 
-The engagement score measures how strongly an Instagram post performs compared to the *average post of the same party*.
+For each post $i$, we first compute a raw engagement score:
 
-For each post `i`, we first compute a raw engagement score:
+$$
+\text{raw\_engagement}_i =
+\frac{\text{likes}_i}{\overline{\text{likes}}}
++
+\frac{\text{comments}_i}{\overline{\text{comments}}}
+$$
 
-`raw_engagement_i = (likes_i / avg_likes)
-                   + (comments_i / avg_comments)`
-
-Both averages (`avg_likes`, `avg_comments`) are calculated within the same CSV (party).
+Both averages, $\overline{\text{likes}}$ and $\overline{\text{comments}}$, are calculated within the same party.
 
 We then mean-center the score:
 
-`engagement_score_i = raw_engagement_i - mean(raw_engagement)`
+$$
+\text{engagement\_score}_i =
+\text{raw\_engagement}_i
+-
+\operatorname{mean}(\text{raw\_engagement})
+$$
 
-**Interpretation:**
+**Interpretation**
 
-- `0`   → average post  
-- `> 0` → above-average engagement  
-- `< 0` → below-average engagement
+- $0$ → average post  
+- $> 0$ → above-average engagement  
+- $< 0$ → below-average engagement  
 
-#### 3.2.2: TikTok Engagement Score (mean-centered)
+
+## 3.2.2: TikTok Engagement Score (mean-centered)
 
 The engagement score measures how strongly a TikTok video performs compared to the *average video of the same party*.
 
-For each video `i`, we first compute a raw engagement score:
+For each video $i$, we first compute a raw engagement score:
 
-`raw_engagement_i = (likes_i / avg_likes)
-                   + (comments_i / avg_comments)
-                   + (shares_i / avg_shares)
-                   + (views_i / avg_views)`
+$$
+\text{raw\_engagement}_i =
+\frac{\text{likes}_i}{\overline{\text{likes}}}
++
+\frac{\text{comments}_i}{\overline{\text{comments}}}
++
+\frac{\text{shares}_i}{\overline{\text{shares}}}
++
+\frac{\text{views}_i}{\overline{\text{views}}}
+$$
 
-All averages (`avg_likes`, `avg_comments`, `avg_shares`, `avg_views`) are calculated within the same party.
+All averages are calculated within the same party.
 
-Hence, the mean-centered score:
+The mean-centered engagement score is then defined as:
 
-`engagement_score_i = raw_engagement_i - mean(raw_engagement)`
+$$
+\text{engagement\_score}_i =
+\text{raw\_engagement}_i
+-
+\operatorname{mean}(\text{raw\_engagement})
+$$
 
-**Interpretation:**
+**Interpretation**
 
-- `0`   → average video  
-- `> 0` → above-average engagement  
-- `< 0` → below-average engagement
+- $0$ → average video  
+- $> 0$ → above-average engagement  
+- $< 0$ → below-average engagement  
 
 ## 4: Results
 
@@ -128,9 +147,9 @@ We employ a one-sided Mann-Whitney U test to compare the distribution of engagem
 #### 4.1.1: Results H1
 We find strong evidence against Hypothesis H1. Not only do voting-related posts fail to generate higher engagement, but they are associated with significantly lower engagement compared to non-voting posts.
 
-A one-sided Mann–Whitney U test comparing all voting-related posts (n=371) with non-voting posts (n=1420) yields a p-value of 0.97 in the hypothesised direction. Reversing the alternative hypothesis shows that voting-related posts in fact receive significantly lower engagement than non-voting content (p < 0.05). This indicates that the effect is statistically significant in the opposite direction of H1.
+A one-sided Mann–Whitney U test comparing all voting-related posts (n=371) with non-voting posts (n=1420) yields a p-value of 0.97 in the hypothesised direction. Reversing the alternative hypothesis shows that voting-related posts in fact receive significantly lower engagement than non-voting content (p < 0.05). This indicates that the effect is statistically significant in the opposite direction of H1. As seen in Table 1, reports median engagement scores by content type. The negative median difference confirms that voting-related posts systematically underperform.
 
-Table 1 reports median engagement scores by content type.
+Table: Median engagement scores by content type
 
 | Content type | Median engagement |
 |--------------|------------------|
@@ -138,11 +157,12 @@ Table 1 reports median engagement scores by content type.
 | Non-voting | -0.91 |
 | Median difference (voting – non-voting) | -0.14 |
 
-The negative median difference confirms that voting-related posts systematically underperform.
 
 The effect of voting-related content differs substantially between platforms. On Instagram, posts referring to current voting issues receive markedly lower engagement than non-voting posts. The median engagement score of voting-related posts is -0.94, compared to -0.79 for non-voting posts, corresponding to a negative median shift of -0.14. This difference is statistically significant in the opposite direction of Hypothesis H1.
 
-On TikTok, in contrast, voting-related posts do not exhibit a systematic engagement penalty. Median engagement for voting-related posts is -2.24, compared to -2.25 for non-voting content, yielding a negligible median shift of +0.02. The difference is statistically insignificant.
+On TikTok, in contrast, voting-related posts do not exhibit a systematic engagement penalty (s. Table 2). Median engagement for voting-related posts is -2.24, compared to -2.25 for non-voting content, yielding a negligible median shift of +0.02. The difference is statistically insignificant.
+
+Table: Difference in engagement between voting and non-voting posts
 
 | Platform  | Median engagement (voting) | Median engagement (non-voting) | Median shift |
 |-----------|----------------------------|---------------------------------|--------------|
@@ -161,9 +181,9 @@ We employ a one-sided Spearman rank correlation test to assess whether engagemen
 
 Hypothesis H2 is not supported by the data. Contrary to expectations, engagement does not increase as the voting day approaches. Instead, posts published further away from the ballot date receive higher engagement.
 
-A one-sided Spearman rank correlation test on all voting-related posts published before the voting day yields a positive correlation between the number of days remaining until the vote and engagement, with a Spearman coefficient of 0.20 and a p-value of 0.999. This indicates that engagement tends to be higher for posts that are published earlier rather than closer to the vote.
+A one-sided Spearman rank correlation test on all voting-related posts published before the voting day yields a positive correlation between the number of days remaining until the vote and engagement, with a Spearman coefficient of 0.20 and a p-value of 0.999. This indicates that engagement tends to be higher for posts that are published earlier rather than closer to the vote. The binned median analysis reinforces this finding (s. Table 3)
 
-The binned median analysis reinforces this finding. Table 3 reports median engagement scores by temporal distance to the voting day.
+Table: Median engagement scores by temporal distance
 
 | Days before vote | Median engagement |
 |------------------|------------------|
@@ -191,31 +211,37 @@ Hypothesis H3 is not supported by the data. Across platforms, there is no system
 
 For Instagram, the pooled regression yields a negative coefficient for the sentiment variable, indicating that more negative tone is weakly associated with higher engagement. However, this effect is small and statistically insignificant (beta = −0.17, p = 0.21, R² = 0.001). Party-level analyses reveal that almost all parties exhibit coefficients close to zero and large standard errors. The only marginal exception is the FDP, for which the coefficient is negative and borderline significant (beta = −0.65, p = 0.055), suggesting that FDP posts with more negative tone may receive slightly higher engagement. This effect, however, does not generalise to other parties.
 
+Table: Pooled regression (Instagram)
+
 |                    | All Parties Pooled | FDP |
 |--------------------|-------------------:|----:|
-| **Sentiment (β)**  | -0.1740            | -0.6493* |
+| **Sentiment (Beta)**  | -0.1740            | -0.6493* |
 | **Intercept**      | -0.0237            | -0.0823 |
 | **R²**             | 0.0007             | 0.0405 |
 | **Adj. R²**        | 0.0000             | 0.0289 |
 | **N**              | 1402               | 85 |
 
-*Robust standard errors (HC3) in parentheses.*  
+\begin{center} 
 \* p < .10, ** p < .05, *** p < .01
+\end{center}
 
 For TikTok, the pooled regression shows a positive but statistically insignificant association between sentiment and engagement (beta = 0.39, p = 0.55, R² = 0.0004). This indicates that on TikTok, if anything, more positive tone is weakly associated with higher engagement, again contradicting H3. Party-level models on TikTok exhibit large uncertainty and no robust or consistent effects.
 
 
+Table: Pooled regression (Tiktok)
+
 |                   | All Parties Pooled (Tiktok) |
 |-------------------|----------------------------:|
-| **Sentiment (β)** |                      0.3902 |
+| **Sentiment (Beta)** |                      0.3902 |
 | **Intercept**     |                      0.0524 |
 | **R²**            |                      0.0004 |
 | **Adj. R²**       |                     -0.0022 |
 | **N**             |                         380 |
 | **p-Value**       |                        0.55 |
 
-*Robust standard errors (HC3) in parentheses.*  
+\begin{center}
 \* p < .10, ** p < .05, *** p < .01
+\end{center}
 
 
 Taken together, these findings demonstrate that negativity does not systematically drive engagement in Swiss political social media communication. While there is weak and isolated evidence for a negativity effect among FDP posts on Instagram, this pattern does not extend across parties or platforms. Hypothesis H3 is therefore rejected.
@@ -235,8 +261,7 @@ We then compute a one-sided Spearman rank correlation between ideological distan
 
 The network reveals a highly asymmetric interaction structure. Right-wing parties, particularly the SVP and its youth organisation JSVP, occupy a central position with numerous incoming mentions from ideologically diverse parties, whereas left and green parties appear more peripheral and engage less frequently across ideological blocks. Interactions are not evenly distributed along the ideological spectrum but are instead concentrated on a small number of focal actors. This descriptive pattern suggests that a few polarising parties act as attention hubs in cross-party communication, while most parties primarily remain within their ideological neighbourhoods.
 
-![party_mentions_network_instagram.png](../1_Processing/2_Analysis/2_Network%20Analysis/party_mentions_network_instagram.png)
-*Figure 3: Network of cross-party mentions on Instagram*
+![Network of cross-party mentions on Instagram](../1_Processing/2_Analysis/2_Network%20Analysis/party_mentions_network_instagram.png)
 
 *Figure 4* visualises the network of cross-party mentions on TikTok. Compared to Instagram, the TikTok network is substantially sparser and more centralised around a small number of actors.
 
@@ -244,8 +269,8 @@ The SVP clearly dominates the interaction structure. It receives a large number 
 
 Cross-ideological interactions are rare and mostly unidirectional. For example, FDP and JUSO occasionally mention ideologically distant parties, but these links are weak and not reciprocated. Left and green parties are largely isolated, with very few outgoing or incoming ties.
 
-![party_mentions_network_tiktok.png](../1_Processing/2_Analysis/2_Network%20Analysis/party_mentions_network_tiktok.png)
-*Figure 4: Network of cross-party mentions on Tiktok*
+![Network of cross-party mentions on Tiktok](../1_Processing/2_Analysis/2_Network%20Analysis/party_mentions_network_tiktok.png)
+
 
 Hypothesis **H4 is not supported** by the data. Across all source–target party interactions, there is no evidence that ideological distance is associated with higher engagement.
 
