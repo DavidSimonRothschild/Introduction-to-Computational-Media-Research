@@ -1,6 +1,6 @@
 # How Swiss Parties Mobilize Voters on Instagram and TikTok
 
-*Link to Colab Notebook:*
+**Link to Colab Notebook:**
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/DavidSimonRothschild/Introduction-to-Computational-Media-Research/blob/main/analysis_notebook.ipynb)
 
