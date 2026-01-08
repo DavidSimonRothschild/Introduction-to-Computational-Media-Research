@@ -115,9 +115,9 @@ Hence, the mean-centered score:
 - `> 0` → above-average engagement  
 - `< 0` → below-average engagement
 
-# 4: Results
+## 4: Results
 
-## 4.1: H1: Posts connecting to the latest voting issues get higher engagement than posts related to non-voting issues
+### 4.1: H1: Posts connecting to the latest voting issues get higher engagement than posts related to non-voting issues
 
 To test whether posts that reference current voting issues receive higher engagement than non-voting posts (H1), we combine post-level data from the official Instagram and TikTok accounts of Swiss political parties and their youth organisations. 
 
@@ -125,7 +125,7 @@ We defined two topical dictionaries corresponding to the two national ballots he
 
 We employ a one-sided Mann-Whitney U test to compare the distribution of engagement scores between voting-related and non-voting posts. This non-parametric procedure does not rely on distributional assumptions and is robust to outliers, making it suitable for social media engagement data.
 
-### 4.1.3: Results H1
+#### 4.1.1: Results H1
 We find strong evidence against Hypothesis H1. Not only do voting-related posts fail to generate higher engagement, but they are associated with significantly lower engagement compared to non-voting posts.
 
 A one-sided Mann–Whitney U test comparing all voting-related posts (n=371) with non-voting posts (n=1420) yields a p-value of 0.97 in the hypothesised direction. Reversing the alternative hypothesis shows that voting-related posts in fact receive significantly lower engagement than non-voting content (p < 0.05). This indicates that the effect is statistically significant in the opposite direction of H1.
@@ -151,13 +151,13 @@ On TikTok, in contrast, voting-related posts do not exhibit a systematic engagem
 
 These findings indicate that the overall negative effect of voting-related content is driven almost entirely by Instagram, whereas TikTok shows a largely neutral response pattern.
 
-## 4.2: H2: Posts that are closer to the voting date generate higher user engagement than posts further from voting date
+### 4.2: H2: Posts that are closer to the voting date generate higher user engagement than posts further from voting date
 
 We compute the number of days between the publication date of each post and the voting day on 28 September 2025. This variable takes positive values for posts published before the vote, zero for posts published on the voting day, and negative values for posts published after the ballot. To ensure that the analysis captures mobilisation dynamics rather than post-election communication, we restrict the sample to posts published on or before the voting day.
 
 We employ a one-sided Spearman rank correlation test to assess whether engagement is negatively associated with the number of days remaining until the vote. To facilitate interpretation, we further group posts into four temporal bins.
 
-### 4.2.3: Results H2
+#### 4.2.1: Results H2
 
 Hypothesis H2 is not supported by the data. Contrary to expectations, engagement does not increase as the voting day approaches. Instead, posts published further away from the ballot date receive higher engagement.
 
@@ -176,7 +176,7 @@ Engagement is lowest in the final month prior to the ballot and peaks in the per
 
 In sum, Hypothesis H2 is rejected. Rather than intensifying closer to the voting day, user engagement with voting-related content declines in the final stages of the campaign period.
 
-## 4.3: H3: The higher the negativity score, the higher the engagement of a post
+### 4.3: H3: The higher the negativity score, the higher the engagement of a post
 
 Each post is assigned a sentiment score using a rule-based sentiment analysis approach applied to the caption text on Instagram and the description text on TikTok. The resulting variable ranges from negative to positive values, with lower scores indicating more negative tone and higher scores indicating more positive tone.
 
@@ -186,7 +186,7 @@ In addition to party-level models, we estimate a pooled regression that combines
 
 Support for H3 is indicated by a negative regression coefficient on the sentiment variable. That is, an increase in positivity should be associated with lower engagement if negativity indeed drives user interaction.
 
-### 4.3.3: Results H3
+#### 4.3.1: Results H3
 Hypothesis H3 is not supported by the data. Across platforms, there is no systematic relationship between the sentiment of posts and user engagement.
 
 For Instagram, the pooled regression yields a negative coefficient for the sentiment variable, indicating that more negative tone is weakly associated with higher engagement. However, this effect is small and statistically insignificant (beta = −0.17, p = 0.21, R² = 0.001). Party-level analyses reveal that almost all parties exhibit coefficients close to zero and large standard errors. The only marginal exception is the FDP, for which the coefficient is negative and borderline significant (beta = −0.65, p = 0.055), suggesting that FDP posts with more negative tone may receive slightly higher engagement. This effect, however, does not generalise to other parties.
@@ -220,7 +220,7 @@ For TikTok, the pooled regression shows a positive but statistically insignifica
 
 Taken together, these findings demonstrate that negativity does not systematically drive engagement in Swiss political social media communication. While there is weak and isolated evidence for a negativity effect among FDP posts on Instagram, this pattern does not extend across parties or platforms. Hypothesis H3 is therefore rejected.
 
-## 4.4: H4: If parties engage with each other, posts have higher engagement, if these parties are ideologically further away from each other 
+### 4.4: H4: If parties engage with each other, posts have higher engagement, if these parties are ideologically further away from each other 
 
 We identify cross-party interactions by detecting explicit mentions of other parties in the caption text on Instagram and the description text on TikTok. Using a comprehensive dictionary of party name variants and hashtags, we detect when a post published by a given source party references another target party. Each post contributes at most once to a given source–target pair.
 
@@ -230,7 +230,7 @@ The Measurement of Ideological Distance was computed by the Smart vote Left-Righ
 
 We then compute a one-sided Spearman rank correlation between ideological distance and mean engagement across all source–target party pairs. Hypothesis H4 is supported if ideological distance is positively and significantly correlated with mean engagement, indicating that interactions between ideologically distant parties are associated with higher engagement.
 
-### 4.4.3: Results H4
+#### 4.4.1: Results H4
 *Figure 3* visualises the network of cross-party mentions on Instagram. Nodes represent political parties, with node size indicating overall interaction strength and colour reflecting party affiliation. Edges denote directed mentions from a source party to a target party, with arrow thickness proportional to the number of posts in which the interaction occurs.
 
 The network reveals a highly asymmetric interaction structure. Right-wing parties, particularly the SVP and its youth organisation JSVP, occupy a central position with numerous incoming mentions from ideologically diverse parties, whereas left and green parties appear more peripheral and engage less frequently across ideological blocks. Interactions are not evenly distributed along the ideological spectrum but are instead concentrated on a small number of focal actors. This descriptive pattern suggests that a few polarising parties act as attention hubs in cross-party communication, while most parties primarily remain within their ideological neighbourhoods.
@@ -255,9 +255,9 @@ A one-sided Spearman rank correlation test reveals no monotonic association betw
 
 Overall, the TikTok network shows a fragmented and polarised communication structure. Engagement is concentrated on a small number of right-wing actors, and genuine cross-ideological interaction is largely absent. This structural pattern is consistent with the null results of the statistical tests and further supports the rejection of Hypothesis H4.
 
-# 5: Discussion
+## 5: Discussion
 
-## 5.1: Interpretation
+### 5.1: Interpretation
 
 The underperformance of voting-related content (H1) might be explained by information overload: during voting periods, many actors post about the same issues, so individual posts do not stand out. Instagram and TikTok users might also be looking for entertainment rather than political information.
 
@@ -265,11 +265,11 @@ The null findings for sentiment (H2, H3) go against Robertson et al.'s (2023) fi
 
 The network analysis (H4) showed that parties mostly communicate within their own ideological circles. This limits the potential for conflict-driven engagement.
 
-## 5.2: Theoretical Implications
+### 5.2: Theoretical Implications
 
 These findings raise the question of whether shareworthiness theory (Trilling et al., 2017) can be directly applied to Swiss political social media. News factors that predict engagement elsewhere—timeliness, negativity, conflict—do not seem to work the same way in the Swiss context, with its direct democracy and consensus tradition.
 
-## 5.3: Methodological Considerations
+### 5.3: Methodological Considerations
 
 The mean-centred engagement score accounts for differences in follower counts between parties, making engagement levels comparable. However, it does not allow direct comparisons between parties—we cannot say whether SVP posts get more engagement than SP posts in absolute terms. All hypotheses are therefore within-party comparisons.
 
@@ -277,26 +277,27 @@ This is especially relevant for the sentiment analysis (H3), which was done at t
 
 The score also combines likes, comments, and on TikTok shares and views, treating them equally. These forms of engagement might mean different things, and equal weighting might hide some effects.
 
-## 5.4: Limitations
+### 5.4: Limitations
 
 The observation period only covered two national votes, limiting generalisability. Sentiment was measured with rule-based methods; more advanced approaches might capture emotional nuances better. Engagement metrics show visibility but not persuasion. Finally, we only looked at official party accounts, excluding individual politicians and grassroots actors.
 
-## 5.5: Future Research
+### 5.5: Future Research
 
 Future studies should cover multiple voting cycles and compare Swiss patterns with other direct democracies like Germany. Qualitative analysis of high-engagement posts could reveal characteristics that automated methods miss. A mixed-method approach could help understand the underlying mechanisms.
 
-# 6: Use of AI
+## 6: Use of AI
 In this paper, AI tools were used to support coding and to improve language readability. All analytical decisions, data interpretation, and final content were developed by the authors.
 
-# 7: Literature
+## 7: Literature
 
-Bachl, M. (2018). An Evaluation of Retrospective Facebook Content Collection. https://doi.org/10.17605/OSF.IO/6TXGE
+Bachl, M. (2019). An Evaluation of Retrospective Facebook Content Collection from Political Facebook Pages. Dynamische Prozesse der öffentlichen Kommunikation. Methodische Herausforderungen, 57-72.
 
 Bene, M. (2017). Sharing Is Caring! Investigating Viral Posts on Politicians’ Facebook Pages During the 2014 General Election Campaign in Hungary. Journal of Information Technology & Politics, 14(4), 387–402. https://doi.org/10.1080/19331681.2017.1367348
 
 Bene, M. (2021). Topics to talk about. The effects of political topics and issue ownership on user engagement with politicians’ Facebook posts during the 2018 Hungarian general election. Journal of Information Technology & Politics, 18(3), 338–354. https://doi.org/10.1080/19331681.2021.1881015
 
 Berger, J., & Milkman, K. (2010). Social transmission, emotion, and the virality of online content (No. 106).
+
 Berger, J., & Milkman, K. L. (2012). What makes online content viral? Journal of Marketing Research, 49(2), 192–205. https://doi.org/10.1509/jmr.10.0353
 
 Boukes, M., Jones, N. P., & Vliegenthart, R. (2022). Newsworthiness and story prominence: How the presence of news factors relates to upfront position and length of news stories. Journalism, 23(1), 98–116. https://doi.org/10.1177/1464884919899313
