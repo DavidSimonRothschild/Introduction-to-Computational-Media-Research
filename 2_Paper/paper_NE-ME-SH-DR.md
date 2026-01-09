@@ -4,7 +4,15 @@
 
 **Group**: Nick Eichmann, Marc Eggenberger, Sarah Häusermann, David Rothschild
 
-**Date of submission**: January 5, 2025
+**Date of submission**: January 5, 2026
+
+---
+
+**Abstract**
+
+This paper examines what drives user engagement with Swiss political parties' posts on Instagram and TikTok. We test whether voting-related content, proximity to voting day, negative sentiment, and cross-party conflict increase engagement. Using data from the September 2025 national vote, none of the four hypotheses are supported. Voting-related posts underperform, sentiment shows no effect, and cross-party interactions are rare. These findings suggest that established engagement predictors do not transfer directly to Swiss political social media.
+
+---
 
 ## 1: Introduction
 
