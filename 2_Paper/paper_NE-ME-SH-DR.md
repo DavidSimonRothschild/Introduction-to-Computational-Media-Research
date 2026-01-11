@@ -371,5 +371,5 @@ Ziegele, M., Breiner, T., & Quiring, O. (2014). What Creates Interactivity in On
 
 # 6: Appendix
 
-The link to our colab file: https://colab.research.google.com/github/DavidSimonRothschild/Introduction-to-Computational-Media-Research/blob/main/analysis_notebook.ipynb
+The link to our colab file: \url{https://colab.research.google.com/github/DavidSimonRothschild/Introduction-to-Computational-Media-Research/blob/main/analysis_notebook.ipynb}
 
