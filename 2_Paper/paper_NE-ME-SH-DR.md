@@ -369,3 +369,7 @@ Weber, P. (2014). Discussions in the comments section: Factors influencing parti
 Ziegele, M., Breiner, T., & Quiring, O. (2014). What Creates Interactivity in Online News Discussions? An Exploratory Analysis of Discussion Factors in User Comments on News Items. Journal of Communication, 64(6), 1111–1138. https://doi.org/10.1111/jcom.12123
 
 
+# 6: Appendix
+
+The link to our colab file: https://colab.research.google.com/github/DavidSimonRothschild/Introduction-to-Computational-Media-Research/blob/main/analysis_notebook.ipynb
+
