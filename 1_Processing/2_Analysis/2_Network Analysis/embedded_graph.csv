@@ -1,0 +1,55 @@
+,source,target,weight
+0,Junge Grüne,Mitte,1
+1,Junge Grüne,SVP,1
+2,Junge Grüne,Grüne,1
+3,Junge Grüne,FDP,1
+4,Mitte,JUSO,1
+5,SVP,JUSO,1
+6,SVP,SP,1
+7,SVP,Mitte,1
+8,SVP,Grüne,1
+9,SVP,GLP,1
+10,SVP,FDP,1
+11,SVP,EVP,1
+12,Grüne,FDP,1
+13,Grüne,SVP,1
+14,FDP,JUSO,1
+15,FDP,SVP,1
+16,FDP,SP,1
+17,FDP,Mitte,1
+18,FDP,Grüne,1
+19,JF,FDP,1
+20,JF,SVP,1
+21,JF,GLP,1
+22,JF,SP,1
+23,JF,Grüne,1
+24,JF,Mitte,1
+25,JF,JUSO,1
+26,GLP,SVP,1
+27,GLP,Mitte,1
+28,GLP,FDP,1
+29,GLP,Grüne,1
+30,GLP,JUSO,1
+31,SP,SVP,1
+32,SP,FDP,1
+33,SP,Mitte,1
+34,JUSO,SP,1
+35,JUSO,SVP,1
+36,JUSO,Grüne,1
+37,JUSO,FDP,1
+38,JUSO,Mitte,1
+39,JUSO,GLP,1
+40,Junge GLP,JUSO,1
+41,Junge GLP,GLP,1
+42,Junge GLP,SVP,1
+43,JSVP,SVP,1
+44,JSVP,JF,1
+45,JSVP,Mitte,1
+46,JSVP,JUSO,1
+47,Junge EVP,EVP,1
+48,EVP,Mitte,1
+49,EVP,SVP,1
+50,Junge Mitte,FDP,1
+51,Junge Mitte,Mitte,1
+52,Junge Mitte,EVP,1
+53,Junge Mitte,GLP,1
