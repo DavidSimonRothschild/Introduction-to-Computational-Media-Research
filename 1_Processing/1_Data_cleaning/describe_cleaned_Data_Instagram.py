@@ -5,10 +5,9 @@ from pathlib import Path
 
 # ---- CONFIG ----
 
-PROJECT_ROOT = Path(__file__).resolve().parent.parent  # adjust .parent/.parent as needed
+PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
 
 INPUT_DIR = Path(PROJECT_ROOT / "A_Data" / "2_Instagram" / "2_CLEAN")
-clean_dir = PROJECT_ROOT / "A_Data" / "2_Instagram" / "1_CLEAN"
 SAVE_PNG = True  # set to False if you only want to plt.show()
 OUTPUT_PNG = INPUT_DIR / "Instagram_total_posts_per_party_colored.png"
 

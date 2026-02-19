@@ -5,7 +5,7 @@ from pathlib import Path
 # Sentiment analysis script for German, rule-based.
 # adapted to run in restricted env (no pickle download)
 
-datafolder = Path("data/")
+datafolder = Path(__file__).resolve().parent / "data"
 
 
 # ------------- helpers ------------- #
