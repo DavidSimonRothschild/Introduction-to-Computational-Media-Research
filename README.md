@@ -1,5 +1,9 @@
 # Introduction to Computational Media Research – Group Project
 
+> **⚠️ Archiviert / Archived**
+> Dieses Repository ist archiviert und wird nicht mehr aktiv weiterentwickelt. Der Code und die Daten sind schreibgeschützt und dienen ausschließlich der Nachvollziehbarkeit des Projekts.
+> *This repository has been archived and is no longer actively maintained. Code and data are read-only and provided for reference only.*
+
 Analysis of Swiss political party social media activity on TikTok and Instagram during the 2025 campaign period (March–October 2025). Data was collected via [Zeeschuimer](https://github.com/digitalmethodsinitiative/zeeschuimer) and processed with Python.
 
 ---
